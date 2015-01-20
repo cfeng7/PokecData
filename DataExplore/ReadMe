@@ -1,0 +1,27 @@
+This part of code mainly responsible for the data exploration.
+
+It does not contain the row data since it is too large.
+
+
+***************************
+The insertMongo file is for dealing the Row profile data and output the runnable features as csv format.
+
+The data from csv file could be insert to MongoDB by the command:
+
+mongoimport -d databaseName -c collectionName --type filetype --file filelocation
+-f List_of_target_attribute_name
+
+like: 
+ mongoimport -d mydatabase -c mycol --type csv --file /home/hadoop/workspace/InsertMongo/newProfile.csv -f  _id,public,gender,region,registration,AGE,eye,hair,favourite,smoking,alcohol,sign_in,marital
+
+
+****************************
+The Big1 file is for Mapreduce the features and output the features list for the learning input.
+Basically it reads the relationship, query the MongoDB and process the data under Mapreduce 
+framework.
+
+Be sure to modify the MongoDB IP and Port in order to connect the database.
+
+
+
+
